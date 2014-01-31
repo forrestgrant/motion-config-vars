@@ -66,10 +66,8 @@ before *%w{ spec
 
       # once app.info_plist successfully configured, insert code necessary to
       # configure app's ENV as well.
-      Dir.glob(File.join(File.dirname(__FILE__), 'motion-config-vars/embed/*.rb')).each do |file|
-        app.files.unshift file
-      end
-
+      Motion::Require.all(Dir.glob(File.expand_path('../motion-config-vars/embed/**/*.rb', __FILE__))
+      
     end
 
   end
